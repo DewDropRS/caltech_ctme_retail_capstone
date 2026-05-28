@@ -87,3 +87,29 @@ _To be filled in once main.py is complete._
 ---
 
 ## Project Structure
+
+
+## Working Remotely (iPad / Browser)
+
+This project supports browser-based development via GitHub Codespaces, 
+allowing you to work from any device without a local Python installation.
+
+### Setup
+
+1. Go to the repository on GitHub
+2. Click the green **Code** button → **Codespaces** tab
+3. Click **Create codespace on main**
+4. Wait approximately one minute for the environment to load
+5. In the Codespaces terminal, install dependencies:
+```bash
+   pip install -e ".[dev]"
+```
+
+### Notes
+
+- Codespaces provides a full VS Code environment in the browser
+- All project files are available immediately — no cloning needed
+- Dependencies must be reinstalled each time a new Codespace is created
+- Outputs generated in Codespaces are not automatically synced to your 
+  local machine — commit and push changes to preserve them
+- GitHub Free tier includes 120 core hours per month of Codespaces usage
