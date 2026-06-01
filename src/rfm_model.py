@@ -219,8 +219,8 @@ def run_rfm_analysis(df: pd.DataFrame) -> pd.DataFrame:
     rfm_summarized_df = summarize_rfm_scores(rfm_scores_df)
     plot_rfm_heatmap(rfm_summarized_df)
 
-    rfm_scores_df.to_csv(RFM_SCORE_EXPORT_FILE)
-    rfm_summarized_df.to_csv(RFM_SCORE_SUMMARIZED_EXPORT_FILE)
+    rfm_scores_df.to_csv(RFM_SCORE_EXPORT_FILE, index=False)
+    rfm_summarized_df.to_csv(RFM_SCORE_SUMMARIZED_EXPORT_FILE, index=False)
 
     logger.info(f"[run_rfm_analysis] RFM scores saved to {RFM_SCORE_EXPORT_FILE.name}")
     logger.info(f"[run_rfm_analysis] RFM summary saved to {RFM_SCORE_SUMMARIZED_EXPORT_FILE.name}")
