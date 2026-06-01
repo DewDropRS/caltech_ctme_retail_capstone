@@ -72,6 +72,12 @@ ELBOW_PLOT_FILE = FIGURES_DIR / 'kmeans_elbow_plot.png'
 CLUSTER_HEATMAP_FILE = FIGURES_DIR / 'kmeans_heatmap.png'
 CLUSTER_EXPORT_FILE = REPORTS_DIR / 'kmeans_cluster_profile.csv'
 
+# SHAP
+SHAP_BAR_FILE = FIGURES_DIR / 'shap_summary_bar.png'
+
+# Data Export
+VIZ_READY_DATA_FILE = DATA_DIR / 'viz_ready_data.csv'
+
 # Logging
 LOG_DIR = PROJECT_ROOT / "outputs"
 LOG_FILE = LOG_DIR / "pipeline.log"
@@ -85,3 +91,9 @@ AXIS_LABEL_FONTSIZE = 10
 TICK_LABEL_FONTSIZE = 9
 ANNOTATION_FONTSIZE = 9
 FOOTNOTE_FONTSIZE = 9
+
+# Creates output directories if they don't already exist
+FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+MODELS_DIR.mkdir(parents=True, exist_ok=True)
