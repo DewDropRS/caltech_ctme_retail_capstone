@@ -41,7 +41,7 @@ def descriptive_stats(df: pd.DataFrame) -> None:
     """
 
     stats = df[['Quantity', 'UnitPrice']].describe()
-    stats.to_csv(DESCRIPTIVE_STATS_FILE)
+    stats.to_csv(DESCRIPTIVE_STATS_FILE, index=False)
     logger.info(f"Descriptive stats:\n{stats.to_string()}")
     logger.info(f"Descriptive statistics generated and saved to {DESCRIPTIVE_STATS_FILE.name}")
 
