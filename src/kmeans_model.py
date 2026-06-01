@@ -201,7 +201,7 @@ def train_final_model(norm_scaled: pd.DataFrame, rfm_scores: pd.DataFrame) -> tu
     norm_scaled_labeled = norm_scaled.assign(cluster=kmeans_model.labels_)
     rfm_scores_labeled = rfm_scores.assign(cluster=kmeans_model.labels_)
 
-    rfm_scores_labeled.to_csv(RFM_SCORES_LABELED_FILE)
+    rfm_scores_labeled.to_csv(RFM_SCORES_LABELED_FILE, index=False)
 
     logger.info(
         f'[train_final_model] Cluster distribution:\n{rfm_scores_labeled["cluster"].value_counts().sort_index().to_string()}')
@@ -245,7 +245,6 @@ def plot_cluster_profile_heatmap(rfm_cluster_profile: pd.DataFrame) -> None:
     """
     cluster_t = rfm_cluster_profile.copy()
     cluster_t = cluster_t.set_index('cluster').T
-    print(f"cluster_t:\n{cluster_t}")
     columns = ['customer_count', 'recency_mean', 'frequency_mean', 'monetary_mean', 'rfm_score_mean']
 
     # Normalization method: normalized = (value - min) / (max - min)
@@ -257,7 +256,6 @@ def plot_cluster_profile_heatmap(rfm_cluster_profile: pd.DataFrame) -> None:
     cluster_normalized = cluster_normalized.set_index('cluster')
     cluster_normalized.columns = ['Customer Count', 'Mean Recency (days)', 'Mean Transactions', 'Mean Revenue (£)', 'Mean RFM Score']
     cluster_normalized = cluster_normalized.T
-    print(f"cluster_normalized:\n{cluster_normalized}")
 
     result = []
     for r in range(cluster_normalized.shape[0]):
