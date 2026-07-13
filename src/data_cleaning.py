@@ -108,7 +108,7 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     :return df: analysis ready dataframe (DataFrame)
     """
 
-    logger.info("[clean_data] Starting data cleaning...")
+    logger.info(f"[clean_data] Starting data cleaning: {df.shape[0]:,} rows x {df.shape[1]} columns")
 
     # keep this order
     df = remove_cancellations(df)
@@ -118,6 +118,7 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     df = remove_non_product_records(df)
     df = add_revenue_column(df)
 
+    logger.info(f"[clean_data] Final cleaned dataset: {df.shape[0]:,} rows x {df.shape[1]} columns")
     logger.info("[clean_data] Data cleaning complete.")
 
     return df
