@@ -56,7 +56,8 @@ def build_rfm_metrics(df: pd.DataFrame) -> pd.DataFrame:
 
 def build_rfm_scores(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Calculates the RFM scoring columns and returns the customer-level dataframe.
+    Calculates quartile scores (1-4) for recency, frequency, and monetary metrics,
+    combines them into an RFM segment string and total score per customer.
     :param df: the dataframe returned from build_rfm_metrics
     :return: a dataframe with added rfm scores
     """
