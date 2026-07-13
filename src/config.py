@@ -41,6 +41,7 @@ HOURLY_TXN_FILE = FIGURES_DIR / "eda_hourly_transactions.png"
 # Cohort Analysis
 COHORT_DATE_FORMAT = "%Y-%m"
 RETENTION_HEATMAP_FILE = FIGURES_DIR / "cohort_analysis_retention_heatmap.png"
+COHORT_MATRIX_FILE = REPORTS_DIR / "cohort_matrix.csv"
 
 # RFM Model
 RFM_REFERENCE_DATE = "2011-12-10"
