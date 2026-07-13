@@ -65,7 +65,8 @@ def test_remove_invalid_values(sample_df: pd.DataFrame) -> None:
     :return: None
     """
 
-    valid_rows = len(sample_df[(sample_df['Quantity'] >= MIN_QUANTITY) & (sample_df['UnitPrice'] >= MIN_UNIT_PRICE)])
+    valid_rows = len(sample_df[(sample_df['Quantity'] >= MIN_QUANTITY) \
+                               & (sample_df['UnitPrice'] >= MIN_UNIT_PRICE)])
     df = remove_invalid_values(sample_df)
 
     assert df.shape[0] == valid_rows
