@@ -13,8 +13,9 @@ from src.config import (
     FIGURE_TITLE_FONTSIZE,
     TICK_LABEL_FONTSIZE,
     AXIS_LABEL_FONTSIZE,
-    FOOTNOTE_FONTSIZE
-    )
+    FOOTNOTE_FONTSIZE,
+    COHORT_MATRIX_FILE
+)
 logger = get_logger(__name__)
 
 def get_acquisition_cohorts(df: pd.DataFrame) -> pd.DataFrame:
@@ -137,4 +138,5 @@ def run_cohort_analysis(df: pd.DataFrame) -> None:
     # retention_matrix = retention_matrix.iloc[:-1]
     plot_retention_heatmap(retention_matrix)
 
+    cohort_matrix.to_csv(COHORT_MATRIX_FILE)
     logger.info("[run_cohort_analysis] Cohort analysis complete.")
