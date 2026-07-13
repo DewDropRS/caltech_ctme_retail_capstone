@@ -6,7 +6,7 @@
 
 import logging
 import logging.handlers
-from pythonjsonlogger import jsonlogger
+from pythonjsonlogger import json as jsonlogger
 
 from src.config import LOG_FILE, LOG_MAX_BYTES, LOG_BACKUP_COUNT
 
