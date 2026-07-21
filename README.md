@@ -52,7 +52,29 @@ Each bar represents a feature (recency, frequency, monetary).
 Five unit tests cover the core data cleaning functions: cancellation removal, 
 invalid value removal, missing CustomerID removal, duplicate removal, and 
 non-product record removal. Tests run against a small synthetic DataFrame 
-defined in `conftest.py`.
+defined in `conftest.py` — a controlled sample with known values covering 
+each test scenario independently.
+
+**Running the tests:**
+```bash
+python -m pytest tests/ -v
+```
+
+The `-v` flag enables verbose output showing each test name and pass/fail status.
+
+Note: pytest is installed as part of the `[dev]` optional dependencies. 
+Make sure you ran `pip install -e ".[dev]"` and not just `pip install -e .`
+
+**Test file structure:**
+- `tests/conftest.py` — defines the `sample_df` fixture, a synthetic 6-row DataFrame 
+  that mimics the real retail data structure with rows covering valid transactions, 
+  cancellations, duplicates, null CustomerIDs, and invalid values
+- `tests/test_data_cleaning.py` — five test functions, each testing one cleaning function 
+  in isolation against a fresh copy of `sample_df`
+
+**Key concept:** Tests verify function behavior, not the real dataset. Each test 
+function receives an independent fresh copy of `sample_df` from pytest — changes 
+made in one test do not affect another.
 
 ### Structured JSON logging with rotating file handler
 All pipeline events are logged as structured JSON to `outputs/pipeline.log` with a 
@@ -122,6 +144,10 @@ source .venv/bin/activate        # Mac/Linux
 
 2. Install the project and all dependencies:
 ```bash
+# To run the pipeline only:
+pip install -e .
+
+# To also run tests:
 pip install -e ".[dev]"
 ```
 The `-e` flag installs the project in editable mode. The `[dev]` flag also
