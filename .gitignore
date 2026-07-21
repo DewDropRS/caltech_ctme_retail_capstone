@@ -29,3 +29,4 @@ __pycache__/
 *.egg-info/
 
 docs/retail_bi_terminology.md
+docs/pyproject_toml_reference.md
